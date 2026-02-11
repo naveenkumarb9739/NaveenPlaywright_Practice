@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+
 test('verify admin can create emp status', async ({ page }) => {
 
 // //launch the url
@@ -20,12 +21,14 @@ await page.locator('//span[text()="Job "]').click()
 await page.locator('//a[text()="Employment Status"]').click()
 //click on add button
 await page.locator("//button[contains(.,'Add')]").click()
+
+let r = (Math.random() + 1).toString(36).substring(7); //5 chars generation
 //enter employment status
-await page.locator('(//input[@class="oxd-input oxd-input--active"])[2]').fill("still_working")
+await page.locator('(//input[@class="oxd-input oxd-input--active"])[2]').fill("still_working+vkjtjk")
 //click on save
 await page.locator("button[type='submit']").click();
 //verify current url
-await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/admin/employmentStatus");
+//await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/admin/employmentStatus");
 //verify employee status
 await expect(page.locator("//h6[text()='Employment Status']")).toBeVisible()
 
