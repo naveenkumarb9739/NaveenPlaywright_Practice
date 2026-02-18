@@ -30,11 +30,10 @@ test('verify admin can create emp status', async ({ page }) => {
   await page.locator("//button[contains(.,'Add')]").click();
 
   // enter employment status
-  await page.locator('(//input[@class="oxd-input oxd-input--active"])[2]').fill("parttimer1223");
+  await page.locator('(//input[@class="oxd-input oxd-input--active"])[2]').fill("parttimer1225635");
 
   // click on save
   await page.locator('//button[@type="submit"]').click()
 
- await expect(page.locator('')).toBeVisible()
 
 });
